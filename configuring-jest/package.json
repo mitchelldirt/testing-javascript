@@ -4,7 +4,10 @@
   "description": "See how to configure Jest and Cypress with React, Babel, and Webpack",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
+    "coverage": "open coverage/lcov-report/index.html",
     "dev": "webpack-dev-server --mode=development",
     "build": "webpack --mode=production",
     "postbuild": "cp ./public/index.html ./dist/index.html",
@@ -47,6 +50,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
+    "emotion-theming": "^10.0.17",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },

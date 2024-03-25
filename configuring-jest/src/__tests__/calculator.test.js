@@ -1,5 +1,5 @@
 import React from 'react'
-import {render, fireEvent} from '@testing-library/react'
+import {render, fireEvent} from 'calculator-test-utils.js'
 import Calculator from '../calculator.js'
 
 // Adds new custom matchers to Jest's expect.
