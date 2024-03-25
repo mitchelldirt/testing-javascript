@@ -27,5 +27,12 @@
         "eslint-config-prettier/@typescript-eslint"
       ]
     }
-  ]
+  ],
+  "settings": {
+    "import/resolver": {
+      "jest": {
+        "jestConfigFile": "./jest.config.js"
+      }
+    }
+  }
 }

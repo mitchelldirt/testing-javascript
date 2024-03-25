@@ -1,6 +1,6 @@
 import React from 'react'
-import {render, fireEvent} from 'calculator-test-utils.js'
-import Calculator from '../calculator.js'
+import {render, fireEvent} from 'calculator-test-utils'
+import Calculator from '../calculator'
 
 // Adds new custom matchers to Jest's expect.
 // This is what you need to do if you don't import /extend-expect.js and instead import * as jestDOM from '@testing-library/jest-dom'
