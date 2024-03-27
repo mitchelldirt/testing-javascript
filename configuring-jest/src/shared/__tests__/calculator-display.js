@@ -9,7 +9,7 @@ test('renders', () => {
       position: relative;
       color: white;
       background: #1c191c;
-      line-height: 130px;
+      line-height: 130rem;
       font-size: 6em;
       -webkit-flex: 1;
       -ms-flex: 1;

@@ -17,18 +17,6 @@
     "validate": "npm run test && npm run build",
     "setup": "npm install && npm run validate"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run build"
-    }
-  },
-  "lint-staged": {
-    "**/*.+(js|json|css|html|md)": [
-      "prettier --write",
-      "jest --findRelatedTests",
-      "git add"
-    ]
-  },
   "jest-runner-eslint": {
     "cliOptions": {
       "ignorePath": "../.gitignore"

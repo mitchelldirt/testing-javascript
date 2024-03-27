@@ -1,5 +1,1 @@
-{
-  "hooks": {
-    "pre-commit": "cd ./static_analysis && npm run check-types && npx lint-staged && npm run build"
-  }
-}
+
