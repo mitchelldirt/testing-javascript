@@ -2,16 +2,17 @@
 
 // 🐨 you'll need both of these:
 import {UnauthorizedError} from 'express-jwt'
+import {buildRes, buildReq, buildNext} from 'utils/generate'
 import errorMiddleware from '../error-middleware'
 
-function buildRes(overrides) {
-  const res = {
-    json: jest.fn(() => res),
-    status: jest.fn(() => res),
-    ...overrides,
-  }
-  return res
-}
+// function buildRes(overrides) {
+//   const res = {
+//     json: jest.fn(() => res),
+//     status: jest.fn(() => res),
+//     ...overrides,
+//   }
+//   return res
+// }
 
 // 🐨 Write a test for the UnauthorizedError case
 // 💰 const error = new UnauthorizedError('some_error_code', {message: 'Some message'})
@@ -22,8 +23,8 @@ describe('Unauthorized Error', () => {
     const message = 'Some message'
     const error = new UnauthorizedError(code, {message: message})
 
-    const req = {}
-    const next = jest.fn()
+    const req = buildReq()
+    const next = buildNext()
     const res = buildRes()
     res.headersSent = false
 
@@ -62,13 +63,13 @@ describe('headersSent Case', () => {
 
   it('does not call next because headersSent is false', () => {
     const error = new Error('Blah')
-    const req = {}
+    const req = buildReq()
     const res = {
       json: jest.fn(() => res),
       status: jest.fn(() => res),
       headersSent: false,
     }
-    const next = jest.fn()
+    const next = buildNext()
 
     errorMiddleware(error, req, res, next)
 
@@ -80,9 +81,9 @@ describe('headersSent Case', () => {
 describe('Else case', () => {
   it('Should return a 500 error and the error object', () => {
     const error = new Error('Blah')
-    const req = {}
+    const req = buildReq()
     const res = buildRes()
-    const next = jest.fn()
+    const next = buildNext()
 
     errorMiddleware(error, req, res, next)
 
